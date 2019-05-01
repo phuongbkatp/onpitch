@@ -25,7 +25,7 @@ android {
     flavorDimensions "app"
     productFlavors {
         manutd {
-            applicationId "com.appian.manchesterunitednews"
+            applicationId "com.appian.footballnewsdaily"
             versionCode 119
             versionName "1.1.9"
         }
