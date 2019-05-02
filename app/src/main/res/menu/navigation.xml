@@ -9,12 +9,15 @@
     <item
         android:id="@+id/llLeagueMenu"
         android:icon="@drawable/premier_league_logo"
-        android:title="@string/league_menu"/>
-
+        android:title="@string/news_topic_menu"/>
+    <item
+        android:id="@+id/llVideoMenu"
+        android:icon="@drawable/squad_ic"
+        android:title="@string/video_menu"/>
     <item
         android:id="@+id/llSquadMenu"
         android:icon="@drawable/squad_ic"
-        android:title="@string/squad_tab"/>
+        android:title="@string/red_devil_menu"/>
     <item
         android:id="@+id/rlSetting"
         android:icon="@drawable/more_button"

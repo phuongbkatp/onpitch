@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="fill_vertical"
-    android:layout_marginTop="@dimen/activity_margin_standard"
     tools:context="app.MainActivity"
     tools:showIn="@layout/home_layout"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">

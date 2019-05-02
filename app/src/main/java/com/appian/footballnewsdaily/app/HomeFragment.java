@@ -12,7 +12,6 @@ import android.view.View;
 import com.appian.footballnewsdaily.Constant;
 import com.appian.footballnewsdaily.R;
 import com.appian.footballnewsdaily.app.adapter.AdapterViewPager;
-import com.appian.footballnewsdaily.app.fixture.presenter.TeamLastNextMatchPresenter;
 import com.appian.footballnewsdaily.app.fixture.view.TeamLastNextMatchView;
 import com.appian.footballnewsdaily.app.match.BannerFragment;
 import com.appian.footballnewsdaily.app.news.NewsFragment;
@@ -21,13 +20,11 @@ import com.appian.footballnewsdaily.data.app.AppConfig;
 import com.appian.footballnewsdaily.network.NetworkHelper;
 import com.appnet.android.football.sofa.data.Event;
 import com.appnet.android.football.sofa.data.Tournament;
-import com.viewpagerindicator.CirclePageIndicator;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFragment extends BaseFragment implements TeamLastNextMatchView {
-    private ViewPager mLastNextViewPager;
     private View mViewNoConnectivity;
 
     private ToolbarViewListener mToolbar;
@@ -37,7 +34,6 @@ public class HomeFragment extends BaseFragment implements TeamLastNextMatchView 
     private AdapterViewPager mLastNextAdapterViewPager;
 
     private int mTeamId = 0;
-    private TeamLastNextMatchPresenter mTeamLastNextMatchPresenter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,9 +47,7 @@ public class HomeFragment extends BaseFragment implements TeamLastNextMatchView 
         mNewsAdapterViewPager = new AdapterViewPager(getChildFragmentManager(), fList);
         mLastNextFragments = new ArrayList<>();
         mLastNextAdapterViewPager = new AdapterViewPager(getChildFragmentManager(), mLastNextFragments);
-        mTeamLastNextMatchPresenter = new TeamLastNextMatchPresenter();
-        mTeamLastNextMatchPresenter.attachView(this);
-        loadTeamLastNext();
+
     }
 
     @Override
@@ -72,9 +66,7 @@ public class HomeFragment extends BaseFragment implements TeamLastNextMatchView 
 
     private void initLayout(View view) {
         TabLayout tabLayout = view.findViewById(R.id.materialTabHost);
-        mLastNextViewPager = view.findViewById(R.id.viewpagerBanner);
         mViewNoConnectivity = view.findViewById(R.id.view_no_internet_connection);
-        CirclePageIndicator indicator = view.findViewById(R.id.indicator);
         ViewPager newsViewPager = view.findViewById(R.id.viewpager);
 
         Context context = getContext();
@@ -94,9 +86,7 @@ public class HomeFragment extends BaseFragment implements TeamLastNextMatchView 
         if (tab3 != null) {
             tab3.setText(getString(R.string.video_news));
         }
-        mLastNextViewPager.setAdapter(mLastNextAdapterViewPager);
 
-        indicator.setViewPager(mLastNextViewPager);
         setTitle();
     }
 
@@ -105,17 +95,10 @@ public class HomeFragment extends BaseFragment implements TeamLastNextMatchView 
         return R.layout.home_layout;
     }
 
-    private void loadTeamLastNext() {
-        if (mTeamId == 0) {
-            return;
-        }
-        mTeamLastNextMatchPresenter.loadMatchLastNext(mTeamId);
-    }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        mTeamLastNextMatchPresenter.detachView();
     }
 
     private void setTitle() {
@@ -168,7 +151,6 @@ public class HomeFragment extends BaseFragment implements TeamLastNextMatchView 
                 break;
             }
         }
-        mLastNextViewPager.setCurrentItem(initPosition, false);
     }
 
     private void checkInternetConnection(boolean isConnected) {
