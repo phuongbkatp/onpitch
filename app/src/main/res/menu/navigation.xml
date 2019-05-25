@@ -2,22 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/llNewsFeedMenu"
-        android:icon="@drawable/newsfeed_ic"
-        android:title="@string/home_menu"/>
+        android:id="@+id/llNewsMenu"
+        android:icon="@drawable/news"
+        android:title="@string/news_tab"/>
 
     <item
-        android:id="@+id/llLeagueMenu"
-        android:icon="@drawable/premier_league_logo"
-        android:title="@string/news_topic_menu"/>
+        android:id="@+id/llScoreMenu"
+        android:icon="@drawable/scoreboard"
+        android:title="@string/match_tab"/>
+    <item
+        android:id="@+id/llFavoriteMenu"
+        android:icon="@drawable/favorites"
+        android:title="@string/follow_tab"/>
     <item
         android:id="@+id/llVideoMenu"
-        android:icon="@drawable/squad_ic"
-        android:title="@string/video_menu"/>
-    <item
-        android:id="@+id/llSquadMenu"
-        android:icon="@drawable/squad_ic"
-        android:title="@string/red_devil_menu"/>
+        android:icon="@drawable/video"
+        android:title="@string/videos_tab"/>
+
     <item
         android:id="@+id/rlSetting"
         android:icon="@drawable/more_button"

@@ -49,4 +49,7 @@ public class ListNewsPresenter extends BasePresenter<ListNewsView> implements On
                 break;
         }
     }
+    public void loadVideo(String language) {
+        mInteractor.loadNews(this, "footballnews", "video", language);
+    }
 }

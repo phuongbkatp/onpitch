@@ -5,6 +5,9 @@ import android.widget.BaseAdapter;
 
 import java.util.List;
 
+
+
+
 public abstract class BaseListAdapter<T> extends BaseAdapter {
     protected Context mContext;
     protected List<T> mData;

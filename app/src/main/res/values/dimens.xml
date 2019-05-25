@@ -110,6 +110,7 @@
     <dimen name="tab_news_text_size">10sp</dimen>
     <dimen name="tab_height">30dp</dimen>
     <dimen name="fixture_tab_text">14sp</dimen>
+    <dimen name="welcome_text">34sp</dimen>
 
     <dimen name="input_text_height">40dp</dimen>
     <dimen name="lineup_icon_size">30dp</dimen>
@@ -125,5 +126,7 @@
     <dimen name="table_view_default_text_size">11sp</dimen>
 
     <dimen name="setting_item_height">60dp</dimen>
+    <dimen name="follow_item_height">60dp</dimen>
+
 
 </resources>

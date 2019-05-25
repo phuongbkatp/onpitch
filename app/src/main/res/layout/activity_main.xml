@@ -70,8 +70,8 @@
         android:layout_height="?attr/actionBarSize"
         android:layout_gravity="bottom"
         app:itemBackground="@color/globalWhite"
-        app:itemIconTint="@color/colorPrimary"
-        app:itemTextColor="@color/colorPrimary"
+        app:itemIconTint="@drawable/bottom_nav_highlight"
+        app:itemTextColor="@drawable/bottom_nav_highlight"
         app:menu="@menu/navigation" />
 </android.support.design.widget.CoordinatorLayout>
 

@@ -29,7 +29,7 @@ android {
             versionCode 119
             versionName "1.1.9"
         }
-        mancity {
+/*        mancity {
             applicationId "com.appian.manchestercitynews"
             versionCode 104
             versionName "1.0.4"
@@ -63,7 +63,7 @@ android {
             applicationId "com.appian.arsenalnews"
             versionCode 1
             versionName "1.0.0"
-        }
+        }*/
     }
 }
 

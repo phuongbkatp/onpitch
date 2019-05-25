@@ -25,6 +25,8 @@ import com.appnet.android.ads.admob.BannerAdMob;
 
 import java.util.List;
 
+import static com.appian.footballnewsdaily.Constant.KEY_SELECTED_LIST;
+
 public class LeagueFragment extends BaseStateFragment {
     private ViewGroup mAdViewContainer;
 
@@ -37,6 +39,9 @@ public class LeagueFragment extends BaseStateFragment {
     private int mSeasonId;
     private String mLeagueName;
     private int mTeamId;
+    private List<String> mFollowingList;
+    private List<String> mTeamNameList;
+    private AppConfig appConfig;
 
     public static LeagueFragment newInstance(Bundle args) {
         LeagueFragment fragment = new LeagueFragment();
@@ -49,6 +54,9 @@ public class LeagueFragment extends BaseStateFragment {
         super.onCreate(savedInstanceState);
         FragmentManager fm = getChildFragmentManager();
         adapter = new MatchPagerAdapter(fm);
+        appConfig = AppConfig.getInstance();
+        mFollowingList = appConfig.getArrayList(getActivity().getApplicationContext(), KEY_SELECTED_LIST);
+
         Bundle args = getArguments();
         if (args != null) {
             mLeagueId = args.getInt("league_id");
@@ -67,9 +75,10 @@ public class LeagueFragment extends BaseStateFragment {
         }
         updateTitle();
         List<Fragment> fragments = adapter.getStateFragments();
-        for (Fragment fragment : fragments) {
+        for (int i = 0; i < fragments.size(); i++) {
+            Fragment fragment = fragments.get(i);
             if (fragment instanceof OnLeagueUpdatedListener) {
-                ((OnLeagueUpdatedListener) fragment).onLeagueUpdated(mLeagueId, mSeasonId);
+                ((OnLeagueUpdatedListener) fragment).onLeagueUpdated(appConfig.getLeagueIdFromKey(mFollowingList.get(i)), mSeasonId);
             }
         }
     }
@@ -78,7 +87,7 @@ public class LeagueFragment extends BaseStateFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initView(view);
-        mBannerAdMob.addView(mAdViewContainer);
+        /*mBannerAdMob.addView(mAdViewContainer);
         mBannerAdMob.setOnLoadListener(new OnAdLoadListener() {
             @Override
             public void onAdLoaded() {
@@ -90,7 +99,7 @@ public class LeagueFragment extends BaseStateFragment {
                 mAdViewContainer.setVisibility(View.GONE);
             }
         });
-        mBannerAdMob.loadAd();
+        mBannerAdMob.loadAd();*/
     }
 
     private void initView(View view) {
@@ -100,7 +109,7 @@ public class LeagueFragment extends BaseStateFragment {
         Context context = getContext();
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
-        View view0 = View.inflate(context, R.layout.custom_tab_layout, null);
+/*        View view0 = View.inflate(context, R.layout.custom_tab_layout, null);
         view0.findViewById(R.id.icon_tab).setBackgroundResource(R.drawable.calendar);
         TabLayout.Tab tab0 = tabLayout.getTabAt(0);
         if(tab0 != null) {
@@ -117,7 +126,7 @@ public class LeagueFragment extends BaseStateFragment {
         TabLayout.Tab tab2 = tabLayout.getTabAt(2);
         if(tab2 != null) {
             tab2.setCustomView(view2);
-        }
+        }*/
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         updateTitle();
@@ -128,9 +137,10 @@ public class LeagueFragment extends BaseStateFragment {
     public void onResume() {
         super.onResume();
         List<Fragment> fragments = adapter.getStateFragments();
-        for (Fragment fragment : fragments) {
+        for (int i = 0; i < fragments.size(); i++) {
+            Fragment fragment = fragments.get(i);
             if (fragment instanceof OnLeagueUpdatedListener) {
-                ((OnLeagueUpdatedListener) fragment).onLeagueUpdated(mLeagueId, mSeasonId);
+                ((OnLeagueUpdatedListener) fragment).onLeagueUpdated(appConfig.getLeagueIdFromKey(mFollowingList.get(i)), mSeasonId);
             }
         }
     }
@@ -148,21 +158,15 @@ public class LeagueFragment extends BaseStateFragment {
 
         @Override
         public Fragment getItem(int position) {
-            switch (position) {
-                case 0:
-                    return FixtureFragment.newInstance(mLeagueId, mSeasonId, mTeamId, this);
-                case 1:
-                    return MatchDayFragment.newInstance(mLeagueId, mSeasonId, this);
-                case 2:
-                    return TableFragment.newInstance(mLeagueId, mSeasonId, this);
 
-            }
-            return null;
+            return MatchDayFragment.newInstance(appConfig.getLeagueIdFromKey(mFollowingList.get(position)), mSeasonId, this);
+
         }
+
 
         @Override
         public int getCount() {
-            return 3;
+            return mFollowingList.size();
         }
 
         public int getItemPosition(@NonNull Object object) {
@@ -178,8 +182,8 @@ public class LeagueFragment extends BaseStateFragment {
         }
         AppConfig appConfig = AppConfig.getInstance();
         mTeamId = appConfig.getTeamId(context);
-        mBannerAdMob = new BannerAdMob(context, appConfig.getAdbMobMatchDetail(context));
-        Utils.addAdmobTestDevice(mBannerAdMob);
+/*        mBannerAdMob = new BannerAdMob(context, appConfig.getAdbMobMatchDetail(context));
+        Utils.addAdmobTestDevice(mBannerAdMob);*/
     }
 
     private void updateTitle() {

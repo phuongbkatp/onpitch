@@ -14,10 +14,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appian.footballnewsdaily.R;
+import com.appian.footballnewsdaily.app.followsetting.HomeFollowFragment;
 import com.appian.footballnewsdaily.app.league.LeagueFragment;
 import com.appian.footballnewsdaily.app.more.MoreFragment;
+import com.appian.footballnewsdaily.app.news.NewsFollowFragment;
+import com.appian.footballnewsdaily.app.news.NewsVideoFragment;
 import com.appian.footballnewsdaily.app.setting.SettingActivity;
-import com.appian.footballnewsdaily.app.team.TeamFragment;
 import com.appian.footballnewsdaily.app.user.LogInActivity;
 import com.appian.footballnewsdaily.data.app.AppConfig;
 import com.appian.footballnewsdaily.data.app.Language;
@@ -34,8 +36,8 @@ public class MainActivity extends BaseActivity
     private static final String TAG_FRAGMENT_LEAGUE = "fragment_league";
     private static final String TAG_FRAGMENT_HOME = "fragment_home";
     private static final String TAG_FRAGMENT_TOPIC = "fragment_topic";
-    private static final String TAG_FRAGMENT_SQUAD = "fragment_squad";
-    private static final String TAG_FRAGMENT_PROFILE = "fragment_profile";
+    private static final String TAG_FRAGMENT_FOLLOW = "fragment_follow";
+    private static final String TAG_FRAGMENT_VIDEO = "fragment_video";
     private static final String TAG_FRAGMENT_SETTING = "fragment_setting";
 
     private boolean doubleBackToExitPressedOnce = false;
@@ -125,14 +127,15 @@ public class MainActivity extends BaseActivity
     }
 
     private void onBottomNavigationSelect (MenuItem item) {
+
         switch (item.getItemId()) {
-            case R.id.llNewsFeedMenu:
+            case R.id.llNewsMenu:
                 switchFragment(TAG_FRAGMENT_HOME);
                 break;
-            case R.id.llSquadMenu:
-                switchFragment(TAG_FRAGMENT_SQUAD);
+            case R.id.llFavoriteMenu:
+                switchFragment(TAG_FRAGMENT_FOLLOW);
                 break;
-            case R.id.llLeagueMenu:
+            case R.id.llScoreMenu:
                 AppConfig appConfig = AppConfig.getInstance();
                 List<RemoteConfigData.League> leagues = appConfig.getLeagues();
                 int leagueId = 0;
@@ -149,6 +152,9 @@ public class MainActivity extends BaseActivity
                 args.putInt("season_id", seasonId);
                 args.putString("league_name", name);
                 switchFragment(TAG_FRAGMENT_LEAGUE, args);
+                break;
+            case R.id.llVideoMenu:
+                switchFragment(TAG_FRAGMENT_VIDEO);
                 break;
             case R.id.rlSetting:
                 switchFragment(TAG_FRAGMENT_SETTING);
@@ -177,13 +183,17 @@ public class MainActivity extends BaseActivity
             } else if (fragment instanceof LeagueFragment) {
                 ((LeagueFragment) fragment).updateLeagueSeason(args);
             }
-        } else if (TAG_FRAGMENT_SQUAD.equals(tag)) {
+        } else if (TAG_FRAGMENT_FOLLOW.equals(tag)) {
             if (fragment == null) {
-                fragment = TeamFragment.newInstance(getResources().getInteger(R.integer.team_id));
+                fragment = new HomeFollowFragment();
             }
         } else if (TAG_FRAGMENT_SETTING.equals(tag)) {
             if (fragment == null) {
                 fragment = new MoreFragment();
+            }
+        } else if (TAG_FRAGMENT_VIDEO.equals(tag)) {
+            if (fragment == null) {
+                fragment = NewsVideoFragment.newInstance();
             }
         }
         if (fragment != null) {

@@ -10,10 +10,11 @@
     <string name="match_detail_lineups_team_scheme_s">%s</string>
     <string name="match_detail_substitution_title">Substitution</string>
     <string name="share_content">Everything about Manchester United FC in your hands now. Link: http://play.google.com/store/apps/details?id=</string>
-    <string name="home_menu">Feeds</string>
-    <string name="news_topic_menu">Matches</string>
+    <string name="news_tab">News</string>
+    <string name="match_tab">Match</string>
+    <string name="follow_tab">Follow</string>
     <string name="red_devil_menu">News</string>
-    <string name="video_menu">Videos</string>
+    <string name="videos_tab">Videos</string>
     <string name="more_menu">More</string>
 
     <string name="premierleague">Premier League</string>
@@ -73,9 +74,9 @@
     <string name="comment_tab">COMMENT</string>
     <string name="lineup_tab">LINE-UP</string>
 
-    <string name="all_news">Man United</string>
-    <string name="trend_news">International</string>
-    <string name="video_news">National</string>
+    <string name="all_news">Headline</string>
+    <string name="trend_news">Hot</string>
+    <string name="video_news">Transfer</string>
 
     <string name="about_match">MATCH</string>
     <string name="expert_news">COMMENTARY</string>
@@ -236,5 +237,12 @@
     <string name="disclaimer_text_2">%s are not responsible for and can not be held accountable for any content, such as audio-visual content, that you may find on this third party hosted website</string>
     <string name="disclaimer_text_full">The third party website that you are about to visit is not hosted by %s. %s are not responsible for and can not be held accountable for any content, such as audio-visual content, that you may find on this third party hosted website</string>
 
+    <string name="please_select_league">Please select you favorite leagues to get personalized info</string>
+    <string name="please_select_team">Now, please select your favorite team</string>
+    <string name="please_select_language">Start with your language</string>
+
+
+    <string name="skip">skip</string>
+    <string name="start">start</string>
     <string name="latest_highlights" translatable="false">Highlights</string>
 </resources>

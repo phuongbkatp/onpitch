@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatmain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="app.MainActivity">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tab_layout_team"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="6dp"
+            android:minHeight="?attr/actionBarSize"
+            android:background="@color/globalWhite"
+            app:accentColor="@color/globalWhite"
+            app:primaryColor="@color/globalWhite"
+            app:tabTextColor="@color/colorPrimary"
+            app:tabTextAppearance="@style/tabNewsTextStyle"
+            app:tabSelectedTextColor="@color/colorPrimary"
+            app:tabIndicatorColor="@color/colorPrimary"/>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_pager_team"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@id/tab_layout_team"
+            android:layout_above="@+id/admob_banner_container"/>
+
+        <LinearLayout
+            android:id="@+id/admob_banner_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>

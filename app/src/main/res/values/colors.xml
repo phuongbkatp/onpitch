@@ -52,5 +52,7 @@
     <color name="unselected_header_background_color">#1f3650</color>
     <color name="unselected_text_color">#537095</color>
     <color name="separator_color">#273e5b</color>
+    <color name="array_dot_active">#f20056</color>
+    <color name="transparent">#00000000</color>
 
 </resources>

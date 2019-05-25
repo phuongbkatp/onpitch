@@ -2,4 +2,6 @@
 <resources>
     <string name="setting_notification_news">News</string>
     <string name="setting_notification_match">Match</string>
+    <string name="follow_team_setting_title">Team</string>
+    <string name="follow_league_setting_title">League</string>
 </resources>

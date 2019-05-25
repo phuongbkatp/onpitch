@@ -9,6 +9,9 @@ public final class NotificationHelper {
     public static final String KEY_BREAK_NEWS = "notification_break_news";
     public static final String KEY_MATCH_EVENT = "notification_match_event";
 
+    public static final String KEY_TEAM_SETTING = "follow_team_setting";
+    public static final String KEY_LEAGUE_SETTING = "follow_league_setting";
+
     public static final String KEY_PRIVACY_POLICY = "privacy_policy";
     public static final String KEY_RATE_SETTING = "rate_button";
     public static final String KEY_CLEAR_CACHE = "clear_cache";

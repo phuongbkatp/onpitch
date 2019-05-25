@@ -19,6 +19,22 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="follow_category"
+        android:layout="@xml/categories_settings_layout"
+        android:title="@string/notification_setting">
+
+        <Preference
+            android:key="follow_team_setting"
+            android:persistent="false"
+            android:title="@string/follow_team_setting_title"/>
+
+        <Preference
+            android:key="follow_league_setting"
+            android:persistent="false"
+            android:title="@string/follow_league_setting_title"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="general_category"
         android:layout="@xml/categories_settings_layout"
         android:title="@string/general_setting">

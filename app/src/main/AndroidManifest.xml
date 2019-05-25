@@ -26,7 +26,7 @@
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/admob_app_id"/>
         <activity
-            android:name="com.appian.footballnewsdaily.app.SplashActivity"
+            android:name="com.appian.footballnewsdaily.app.WelcomeActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -34,6 +34,12 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.appian.footballnewsdaily.app.SplashActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+
         </activity>
         <activity
             android:name="com.appian.footballnewsdaily.app.MainActivity"
@@ -105,6 +111,10 @@
             android:name="com.appian.footballnewsdaily.app.match.videohighlight.VideoActivity"
             android:parentActivityName="com.appian.footballnewsdaily.app.MainActivity"
             tools:targetApi="jelly_bean" />
+        <activity
+            android:name=".app.followsetting.FollowActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
 
         <service
             android:name="com.appian.footballnewsdaily.service.firebase.AppFirebaseMessageService"

@@ -20,12 +20,17 @@ import android.widget.Toast;
 import com.appian.footballnewsdaily.MainApplication;
 import com.appian.footballnewsdaily.R;
 import com.appian.footballnewsdaily.app.ToolbarViewListener;
+import com.appian.footballnewsdaily.app.followsetting.FollowActivity;
 import com.appian.footballnewsdaily.data.app.AppConfig;
 import com.appian.footballnewsdaily.data.app.Language;
 import com.appian.footballnewsdaily.data.app.helper.NotificationHelper;
 import com.appian.footballnewsdaily.service.app.AppHelper;
 import com.appian.footballnewsdaily.util.CacheHelper;
 import com.appian.footballnewsdaily.util.ViewHelper;
+
+import static com.appian.footballnewsdaily.Constant.EXTRA_KEY_FOLLOW_SETTING;
+import static com.appian.footballnewsdaily.Constant.EXTRA_KEY_FOLLOW_SETTING_LEAGUE;
+import static com.appian.footballnewsdaily.Constant.EXTRA_KEY_FOLLOW_SETTING_TEAM;
 
 public class SettingsFragment extends PreferenceFragment {
     private ToolbarViewListener mToolBar;
@@ -95,6 +100,32 @@ public class SettingsFragment extends PreferenceFragment {
                 return true;
             }
         });
+
+        //League and team
+        Preference teamPref = findPreference(NotificationHelper.KEY_TEAM_SETTING);
+        teamPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                Intent intent = new Intent(getActivity(), FollowActivity.class);
+                intent.putExtra(EXTRA_KEY_FOLLOW_SETTING, EXTRA_KEY_FOLLOW_SETTING_TEAM);
+                startActivity(intent);
+                return true;
+            }
+
+        });
+
+        Preference leaguePref = findPreference(NotificationHelper.KEY_LEAGUE_SETTING);
+        leaguePref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                Intent intent = new Intent(getActivity(), FollowActivity.class);
+                intent.putExtra(EXTRA_KEY_FOLLOW_SETTING, EXTRA_KEY_FOLLOW_SETTING_LEAGUE);
+                startActivity(intent);
+                return true;
+            }
+        });
+
+
         // Privacy and policy
         // News
         Preference policyPref = findPreference(NotificationHelper.KEY_PRIVACY_POLICY);
@@ -116,7 +147,7 @@ public class SettingsFragment extends PreferenceFragment {
                 // To count with Play market backstack, After pressing back button,
                 // to taken back to our application, we need to add following flags to intent.
                 int flags = Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_ACTIVITY_MULTIPLE_TASK;
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     flags |= Intent.FLAG_ACTIVITY_NEW_DOCUMENT;
                 }
                 goToMarket.addFlags(flags);

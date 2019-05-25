@@ -42,5 +42,11 @@ public final class Constant {
 
     public static final String EXTRA_KEY_TEAM_NAME = "key_team_name";
     public static final String EXTRA_KEY_TEAM_ID = "key_team_id";
+    public static final String EXTRA_KEY_FOLLOW_SETTING = "follow_category";
+    public static final String EXTRA_KEY_FOLLOW_SETTING_TEAM = "team";
+    public static final String EXTRA_KEY_FOLLOW_SETTING_LEAGUE = "league";
+    public static final String KEY_SELECTED_LIST = "selected_list";
+    public static final String KEY_NAME_LIST = "team_name_list";
+
 
 }

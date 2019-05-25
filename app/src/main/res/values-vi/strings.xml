@@ -3,8 +3,9 @@
     <string name="app_name">Man United Daily News</string>
     <string name="match_detail_event_gold_assist">Kiến tạo: %s</string>
     <string name="match_detail_substitution_title">Dự bị</string>
-    <string name="home_menu">Trang chủ</string>
-    <string name="news_topic_menu">Chuyên mục</string>
+    <string name="news_tab">Tin tức</string>
+    <string name="follow_tab">Follow</string>
+    <string name="match_tab">Trận đấu</string>
     <string name="premierleague">Ngoại Hạng Anh</string>
     <string name="championsleague">Cúp C1</string>
     <string name="navigation_drawer_open">Mở</string>
@@ -76,7 +77,7 @@
     <string name="fixture_tab">Lịch thi đấu</string>
     <string name="matchday_tab">Vòng đấu</string>
     <string name="standing_tab">Bảng xếp hạng</string>
-    <string name="video_menu">Videos</string>
+    <string name="videos_tab">Videos</string>
     <string name="setting_menu">Cài đặt</string>
     <string name="best_player_info">Cầu thủ xuất sắc</string>
 
@@ -204,5 +205,10 @@
     <string name="disclaimer_text_2">%s không chịu trách nhiệm về bất cứ nội dung, như các nội dung nghe-nhìn, mà bạn thấy trên website bên thứ ba</string>
     <string name="disclaimer_text_full">Website bên thứ ba bạn chuẩn bị xem không thuộc sở hữu của %s. %s không chịu trách nhiệm về bất cứ nội dung, như các nội dung nghe-nhìn, mà bạn thấy trên website bên thứ ba</string>
     <string name="share_content">Everything about Manchester United FC in your hands now. Link: http://play.google.com/store/apps/details?id=</string>
+    <string name="skip">bỏ qua</string>
+    <string name="start">bắt đầu</string>
+    <string name="please_select_league">Hãy chọn cho mình giải đấu yêu thích để nhận những thông tin nhanh nhất</string>
+    <string name="please_select_team">Bây giờ hay chọn đội bóng bạn yêu thích</string>
+    <string name="please_select_language">Bắt đầu với ngôn ngữ của bạn</string>
 
 </resources>

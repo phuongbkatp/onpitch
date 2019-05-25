@@ -103,7 +103,7 @@ public class HomeFragment extends BaseFragment implements TeamLastNextMatchView 
 
     private void setTitle() {
         if (mToolbar != null) {
-            mToolbar.changeToolbarTitle(getString(R.string.home_menu));
+            mToolbar.changeToolbarTitle(getString(R.string.news_tab));
         }
     }
 
